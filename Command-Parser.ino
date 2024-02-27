@@ -19,7 +19,7 @@ void setup() {
     pinMode(RED_LED_PIN, OUTPUT);
     pinMode(YELLOW_LED_PIN, OUTPUT);
 
-    // serial communication setting
+    // Serial communication setting
     Serial.begin(9600);
 
     Serial.println("Type HELP for avaliable Commands...");
@@ -45,7 +45,7 @@ void turnOnLed(int color){
         case 1:
         {
             if(greenLedState){
-                serial.println("Green led is already ON!");
+                Serial.println("Green led is already ON!");
                 return;
             }else{
                 digitalWrite(GREEN_LED_PIN, ON);
@@ -56,7 +56,7 @@ void turnOnLed(int color){
         case 2:
         {
             if(redLedState){
-                serial.println("Red led is already ON!");
+                Serial.println("Red led is already ON!");
                 return;
             }else{
                 digitalWrite(RED_LED_PIN, ON);
@@ -67,7 +67,7 @@ void turnOnLed(int color){
         case 3:
         {
             if(yellowLedState){
-                serial.println("Yellow led is already ON!");
+                Serial.println("Yellow led is already ON!");
                 return;
             }else{
                 digitalWrite(YELLOW_LED_PIN, ON);
@@ -87,7 +87,7 @@ void turnOffLed(int color){
         case 1:
         {
             if(!greenLedState){
-                serial.println("Green led is already OFF!");
+                Serial.println("Green led is already OFF!");
                 return;
             }else{
                 digitalWrite(GREEN_LED_PIN, OFF);
@@ -98,7 +98,7 @@ void turnOffLed(int color){
         case 2:
         {
             if(!redLedState){
-                serial.println("Red led is already OFF!");
+                Serial.println("Red led is already OFF!");
                 return;
             }else{
                 digitalWrite(RED_LED_PIN, OFF);
@@ -109,7 +109,7 @@ void turnOffLed(int color){
         case 3:
         {
             if(!yellowLedState){
-                serial.println("Yellow led is already OFF!");
+                Serial.println("Yellow led is already OFF!");
                 return;
             }else{
                 digitalWrite(YELLOW_LED_PIN, OFF);
@@ -141,59 +141,55 @@ void loop() {
 
         String input = Serial.readStringUntil('\n'); 
 
-        switch(input){
-            case "HELP":
-            {
-                commandHelp();
-                break;
-            }
-            case "GREEN LED ON":
-            {
-                turnOnLed(GREEN);
-                break;
-            }
-            case "GREEN LED OFF":
-            {
-                turnOffLed(GREEN);
-                break;
-            }
-            case "RED LED ON":
-            {
-                turnOnLed(RED);
-                break;
-            }
-            case "RED LED OFF":
-            {
-                turnOffLed(RED);
-                break;
-            }
-            case "YELLOW LED ON":
-            {
-                turnOnLed(YELLOW);
-                break;
-            }
-            case "YELLOW LED OFF":
-            {
-                turnOffLed(YELLOW);
-                break;
-            }
-            case "DISCO MODE ON":
-            {
-                discoState = ON;
-                break;
-            }
-            case "DISCO MODE OFF":
-            {
-                discoState = OFF;
-                break;
-            }
-            default:
-            serial.println("Invalid input!\n");
-        }
-    }// <--- Command Parser with options
+        if(input == "HELP"){
+
+            commandHelp();
+
+        }else if(input == "GREEN LED ON"){
+
+            turnOnLed(GREEN);
+
+        }else if(input == "GREEN LED OFF"){
+
+            turnOffLed(GREEN);
+
+        }else if(input == "RED LED ON"){
+
+            turnOnLed(RED);
+
+        }else if(input == "RED LED OFF"){
+
+            turnOffLed(RED);
+
+        }else if(input == "YELLOW LED ON"){
+
+            turnOnLed(YELLOW);
+
+        }else if(input == "YELLOW LED OFF"){
+            
+            turnOffLed(YELLOW);
+
+        }else if(input == "DISCO MODE ON"){
+
+            discoState = ON;
+
+        }else if(input == "DISCO MODE OFF"){
+
+            discoState = OFF;
+
+        }else {
+
+            Serial.println("Invalid input!\n");
+
+        }// <--- Command Parser with options
+
 
     // using the already existing loop for the disco mode
+    }
+
     if(discoState){
+
         discoMode();
+        
     }
 }
