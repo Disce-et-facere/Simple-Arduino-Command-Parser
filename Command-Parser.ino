@@ -24,7 +24,7 @@ void setup() {
 
     Serial.println("Type HELP for avaliable Commands...");
 }
-
+// Function to display the input options
 void commandHelp(){
     Serial.println("Avaliable Commands:");
     Serial.println("GREEN LED ON - Switches the Green led mode to ON");
@@ -84,7 +84,7 @@ void turnOnLed(int color){
 
 }
 
-// Function to turn off led 1 of 3 leds depending of choosen color
+// Function to turn off 1 of 3 leds depending of choosen color
 void turnOffLed(int color){
 
         switch(color){
@@ -128,7 +128,7 @@ void turnOffLed(int color){
     }
 }
 
-// Function to turn DiscoMode to either on or off
+// Function to start the DiscoMode
 void discoMode(){
 
     digitalWrite(GREEN_LED_PIN, ON);
@@ -195,14 +195,9 @@ void loop() {
             Serial.println("Invalid input!\n");
 
         }// <--- Command Parser with options
-
-
-    // using the already existing loop for the disco mode
     }
-
+    // using the already existing loop for the disco mode
     if(discoState){
-
-        discoMode();
-        
+        discoMode(); 
     }
 }
