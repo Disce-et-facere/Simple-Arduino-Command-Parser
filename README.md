@@ -1,5 +1,15 @@
 # Simple-Arduino-Command-Parser
 Using 3 leds(green, red, yellow) as example.
+...
+#define GREEN_LED_PIN 9
+#define RED_LED_PIN 10
+#define YELLOW_LED_PIN 11
+
+pinMode(GREEN_LED_PIN, OUTPUT); 
+pinMode(RED_LED_PIN, OUTPUT);
+pinMode(YELLOW_LED_PIN, OUTPUT);
+...
+
 
 ## Demo
 ![](DemoPics/1.png)
