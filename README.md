@@ -2,4 +2,4 @@
 Using 3 leds(green, red, yellow) as example.
 
 ## Demo
-![Alt text](DemoPics/1.png)
+![](DemoPics/1.png)
