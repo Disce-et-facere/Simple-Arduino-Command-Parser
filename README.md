@@ -17,7 +17,7 @@ The parser begins with opening the serial communication and setting the baudrate
 
 And then comes the parser part...<br>
 First we check if there is more than 0 bytes in the buffer "Serial.available() > 0"...<br>
-And if it does, we read the buffer until it hits a newline charachter "\n" and store it in a string "input"...<br>
+And if it does, we read the buffer until it hits a newline charachter "\n", if there isnt a newline charachter it goes by a default timeout of 1 sec,and store it in a string "input"...<br>
 Then we use if/else if statements to catch diffrent input values, in this case "GREEN LED ON" etc...
 ```
     if (Serial.available() > 0) {
