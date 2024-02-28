@@ -8,10 +8,10 @@
 #define RED_LED_PIN 10
 #define YELLOW_LED_PIN 11
 
-bool greenLedState = false;
-bool redLedState = false;
-bool yellowLedState = false;
-bool discoState = false;
+bool greenLedState = OFF;
+bool redLedState = OFF;
+bool yellowLedState = OFF;
+bool discoState = OFF;
 
 void setup() {
     // setting up pin mode to output for the leds 
