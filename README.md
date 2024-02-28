@@ -2,4 +2,4 @@
 Using 3 leds(green, red, yellow) as example.
 
 ## Demo
-![](DemoPics/1.png)
+
